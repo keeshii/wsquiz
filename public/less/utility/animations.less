@@ -1,0 +1,64 @@
+/* The starting CSS styles for the enter animation */
+.ryuu-fade {
+    .opacity(1);
+}
+
+.ryuu-fade.ng-enter {
+    .transition(0.2s linear all);
+    .opacity(0);
+}
+
+/* The starting CSS styles for the enter animation */
+.ryuu-fade.ng-enter.ng-enter-active {
+    .opacity(1);
+}
+
+.u-fade.ng-leave {
+    .transition(0.2s linear opacity);
+    .opacity(1);
+}
+
+.u-fade.ng-leave.ng-leave-active {
+    .opacity(0);
+}
+
+/* The starting CSS styles for the enter animation */
+.u-instant-fade {
+    .opacity(1);
+}
+
+.u-instant-fade.ng-enter {
+    .transition(0.5s linear all);
+    .opacity(0);
+}
+
+/* The starting CSS styles for the enter animation */
+.u-instant-fade.ng-enter.ng-enter-active {
+    .opacity(1);
+}
+
+.u-instant-fade.ng-leave {
+    .opacity(0);
+}
+
+.u-instant-fade.ng-leave.ng-leave-active {
+    .opacity(0);
+}
+
+/* collapse */
+.u-collapse {
+    display: block;
+    overflow: hidden;
+}
+
+.u-collapse.ng-leave,
+.ryuu-collapse.ng-enter.ng-enter-active {
+    max-height: 500px;
+    .transition(0.35s ease-in max-height);
+}
+
+.u-collapse.ng-enter,
+.u-collapse.ng-leave.ng-leave-active {
+    max-height: 0;
+    .transition(0.35s ease-out max-height);
+}

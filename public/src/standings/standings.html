@@ -1,0 +1,209 @@
+<main class="c-main">
+
+    <!-- Question -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-primary u-small-margin-bottom">
+                <div class="panel-body">
+                    <h2>
+                        {{session.quiz.title}}
+                        <small translate translate-value-count="{{session.quiz.peers.length}}">
+                            STD_X_PEOPLE
+                        </small>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row ng-hide" ng-show="session.isHost && !$ctrl.isFinished">
+        <div class="col-xs-6">
+            <wq-autonext
+                on-start="$ctrl.nextRound()"
+                ng-if="!$ctrl.isFinished">
+            </wq-autonext>
+        </div>
+        <div class="col-xs-6 text-right">
+            <form name="standingsForm">
+                <button class="btn btn-lg btn-primary u-small-margin-bottom"
+                    ng-click="$ctrl.nextRound()"
+                    ng-disabled="standingsForm.$submitted"
+                    translate>
+                    STD_NEXT_ROUND
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row ng-hide" ng-show="$ctrl.isFinished">
+        <div class="col-sm-12 u-is-centered">
+            <button class="btn btn-lg btn-primary u-small-margin-bottom"
+                ng-click="$ctrl.returnToStart()"
+                translate>
+                STD_RETURN_TO_START
+            </button>
+        </div>
+    </div>
+
+    <div class="row ng-cloak" ng-if="session.isHost && !$ctrl.hasStarted">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+            <div class="panel panel-primary u-small-margin-bottom">
+                <div class="panel-heading text-center">
+                    <strong translate>STD_JOIN_HEADER</strong>
+                </div>
+                <div class="panel-body">
+                    <h3 class="u-no-margin-top" translate>STD_JOIN_STEP_1</h3>
+                    <h2 class="text-center"><strong>{{$ctrl.host}}</strong></h2>
+                    <h3 translate>STD_JOIN_SETP_2</h3>
+                    <h1 class="text-center">{{session.quiz.code}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="list-group u-small-margin-bottom">
+        <li class="list-group-item"
+            ng-repeat="peer in session.quiz.peers | orderBy:'-points'"
+            ng-class="{active: peer.profile.nick === session.profile.nick}">
+
+            <div class="media ng-cloak" ng-if="$index === 0 && $ctrl.isFinished">
+                <div class="media-left">
+                    <div class="media-object c-avatar-winner-container">
+                        <img class="c-avatar"
+                            ng-src="{{peer.profile.avatar || 'images/avatar.svg'}}"
+                            alt="{{'STD_AVATAR' | translate}}">
+                    </div>
+                </div>
+                <div class="media-body">
+                    <h3 class="media-heading u-small-margin-top" translate>STD_FIRST_PLACE</h3>
+                    <h4 class="media-heading">
+                        {{peer.profile.nick}}
+                        <small
+                            translate
+                            translate-value-count="{{peer.points}}">
+                            STD_X_POINTS
+                        </small>
+                    </h4>
+                    <div class="progress u-no-margin-bottom u-tiny-margin-top">
+                        <div class="progress-bar progress-bar-success"
+                            ng-style="{
+                                width: session.quiz.maxPoints === 0
+                                ? 0
+                                : 100 * peer.points / session.quiz.maxPoints + '%'
+                            }">
+                            <span class="ng-hide"
+                                ng-show="peer.points"
+                                translate
+                                translate-value-count="{{peer.points}}">
+                                STD_X_POINTS
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="media ng-cloak" ng-if="$index === 1 && $ctrl.isFinished">
+                <div class="media-left">
+                    <img class="media-object c-avatar c-avatar--winner-size"
+                        ng-src="{{peer.profile.avatar || 'images/avatar.svg'}}"
+                        alt="{{'STD_AVATAR' | translate}}">
+                </div>
+                <div class="media-body">
+                    <h3 class="media-heading u-no-margin-top" translate>STD_SECOND_PLACE</h3>
+                    <h4 class="media-heading">
+                        {{peer.profile.nick}}
+                        <small
+                            translate
+                            translate-value-count="{{peer.points}}">
+                            STD_X_POINTS
+                        </small>
+                    </h4>
+                    <div class="progress u-no-margin-bottom u-tiny-margin-top">
+                        <div class="progress-bar progress-bar-success"
+                            ng-style="{
+                                width: session.quiz.maxPoints === 0
+                                ? 0
+                                : 100 * peer.points / session.quiz.maxPoints + '%'
+                            }">
+                            <span class="ng-hide"
+                                ng-show="peer.points"
+                                translate
+                                translate-value-count="{{peer.points}}">
+                                STD_X_POINTS
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="media ng-cloak" ng-if="$index === 2 && $ctrl.isFinished">
+                <div class="media-left">
+                    <img class="media-object c-avatar c-avatar--winner-size"
+                        ng-src="{{peer.profile.avatar || 'images/avatar.svg'}}"
+                        alt="{{'STD_AVATAR' | translate}}">
+                </div>
+                <div class="media-body">
+                    <h3 class="media-heading u-no-margin-top" translate>STD_THIRD_PLACE</h3>
+                    <h4 class="media-heading">
+                        {{peer.profile.nick}}
+                        <small
+                            translate
+                            translate-value-count="{{peer.points}}">
+                            STD_X_POINTS
+                        </small>
+                    </h4>
+                    <div class="progress u-no-margin-bottom u-tiny-margin-top">
+                        <div class="progress-bar progress-bar-success"
+                            ng-style="{
+                                width: session.quiz.maxPoints === 0
+                                ? 0
+                                : 100 * peer.points / session.quiz.maxPoints + '%'
+                            }">
+                            <span class="ng-hide"
+                                ng-show="peer.points"
+                                translate
+                                translate-value-count="{{peer.points}}">
+                                STD_X_POINTS
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="media ng-cloak" ng-if="$index > 2 || !$ctrl.isFinished">
+                <div class="media-left">
+                    <img class="media-object c-avatar"
+                        ng-src="{{peer.profile.avatar || 'images/avatar.svg'}}"
+                        alt="{{'STD_AVATAR' | translate}}">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        {{$index + 1}}. {{peer.profile.nick}}
+                        <small
+                            translate
+                            translate-value-count="{{peer.points}}">
+                            STD_X_POINTS
+                        </small>
+                    </h4>
+                    <div class="progress u-no-margin-bottom u-tiny-margin-top">
+                        <div class="progress-bar progress-bar-success"
+                            ng-style="{
+                                width: session.quiz.maxPoints === 0
+                                ? 0
+                                : 100 * peer.points / session.quiz.maxPoints + '%'
+                            }">
+                            <span class="ng-hide"
+                                ng-show="peer.points"
+                                translate
+                                translate-value-count="{{peer.points}}">
+                                STD_X_POINTS
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </li>
+    </ul>
+
+</main>

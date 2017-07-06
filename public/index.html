@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="wq">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="favicon.ico">
+
+        <title>WebSocket Quiz</title>
+
+        <!-- injector:css -->
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/wsquiz.min.css">
+        <!-- endinjector -->
+    </head>
+
+    <body>
+
+        <div ui-view></div>
+
+        <!-- Preloaded quiz images, independent from view -->
+        <wq-preloader images="session.quiz.preload"></wq-preloader>
+
+        <!--[if gte IE 9]>-->
+        <!-- injector:js -->
+        <script src="lib/angular/angular.min.js" type="text/javascript"></script>
+        <script src="lib/angular-translate/angular-translate.min.js" type="text/javascript"></script>
+        <script src="lib/angular-animate/angular-animate.min.js" type="text/javascript"></script>
+        <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
+        <script src="lib/angular-cookies/angular-cookies.min.js" type="text/javascript"></script>
+        <script src="lib/angular-sanitize/angular-sanitize.min.js" type="text/javascript"></script>
+        <script src="lib/angular-socket-io/socket.min.js" type="text/javascript"></script>
+        <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js" type="text/javascript"></script>
+        <script src="lib/angular-ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
+        <script src="lib/socket.io-client/dist/socket.io.js" type="text/javascript"></script>
+        <script src="assets/wsquiz.min.js" type="text/javascript"></script>
+        <!-- endinjector -->
+        <!--<![endif]-->
+    </body>
+</html>

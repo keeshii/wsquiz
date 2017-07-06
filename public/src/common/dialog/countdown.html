@@ -1,0 +1,10 @@
+<div class="c-main c-main--with-progressbar">
+    <!-- Remaining time -->
+    <wq-timebar start="start" left="seconds"></wq-timebar>
+
+    <div class="c-loader u-center-hw"></div>
+
+    <div class="c-loader__text u-center-hw">
+        {{seconds > 0 ? seconds : ('COM_GET_READY' | translate)}}
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="$dismiss()">&times;</button>
+    <h3 class="modal-title" translate>PRO_CHOOSE_AVATAR</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-xs-6 col-sm-3 u-is-centered u-small-margin-bottom"
+            ng-repeat="avatar in $ctrl.avatars">
+            <img class="c-avatar c-avatar--clickable"
+                ng-click="$close(avatar)"
+                ng-src="{{avatar}}"
+                alt="{{'PRO_AVATAR' | translate}}">
+        </div>
+    </div>
+</div>
+<div class="modal-footer u-is-centered">
+    <button class="btn btn-primary" ng-click="$dismiss()" translate>PRO_CANCEL</button>
+</div>

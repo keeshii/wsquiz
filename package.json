@@ -1,0 +1,43 @@
+{
+  "name": "wsquiz",
+  "version": "0.9.0",
+  "description": "Websocket quiz with statistics.",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node start.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kkopec <kamil@ryuu.eu>",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-bower-task": "^0.4.0",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-concat": "~0.5.1",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-less": "~0.11.4",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-html2js": "~0.2.9",
+    "grunt-htmlhint": "~0.4.1",
+    "grunt-injector": "^0.6.0",
+    "grunt-jslint": "~1.1.12",
+    "grunt-lesslint": "~1.1.12",
+    "grunt-lintspaces": "~0.6.0",
+    "grunt-text-replace": "~0.3.12",
+    "grunt-zip": "^0.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keeshii/wsquiz.git"
+  },
+  "keywords": [
+    "websocket",
+    "quiz"
+  ],
+  "dependencies": {
+    "express": "^4.15.2",
+    "q": "^1.4.1",
+    "socket.io": "^2.0.3"
+  }
+}

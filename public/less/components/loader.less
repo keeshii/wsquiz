@@ -1,0 +1,25 @@
+@loader-size: 200px;
+
+.c-loader {
+    .animation(loader 2s linear infinite);
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    height: @loader-size;
+    margin: auto;
+    width: @loader-size;
+}
+
+.c-loader__text {
+    height: @loader-size;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: @loader-size;
+    text-align: center;
+    width: @loader-size;
+}
+
+.keyframes(loader; {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+});

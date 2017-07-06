@@ -1,0 +1,59 @@
+<main class="c-main c-main--with-progressbar">
+
+    <!-- Remaining time -->
+    <wq-timebar start="session.quiz.answerTime" left="seconds">
+        <div class="row">
+            <div class="col-xs-6" translate translate-value-count="{{seconds}}">
+                QST_X_SEC
+            </div>
+            <div class="col-xs-6 text-right"
+                translate
+                translate-value-count="{{(session.quiz.peers | filter:{answerRound: session.quiz.question.round}).length}}">
+                QST_X_ANSWERS
+            </div>
+        </div>
+    </wq-timebar>
+
+    <!-- Question -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-primary u-small-margin-bottom">
+                <div class="panel-heading"
+                    translate
+                    translate-value-count="{{session.quiz.question.round + 1}}"
+                    translate-value-total="{{session.quiz.questionCount}}">
+                    QST_QUESTION_X_OF_Y
+                </div>
+                <div class="panel-body">
+                    <h2 ng-bind-html="session.quiz.question.text | wqQuestion"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image -->
+    <div class="row ng-hide" ng-show="session.quiz.question.image">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <div class="embed-responsive embed-responsive-16by9 u-small-margin-bottom">
+                <div class="c-main__image embed-responsive-item"
+                    ng-style="{'background-image': 'url(\'' + session.quiz.question.image + '\')'}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Answers -->
+    <div class="row">
+        <div ng-repeat="answer in session.quiz.question.answers">
+            <div class="col-sm-6">
+                <button class="c-main__answer btn btn-block btn-lg"
+                    ng-class="($ctrl.answer === $index ? 'btn-danger' : 'btn-primary')"
+                    ng-click="$ctrl.sendAnswer($index)"
+                    ng-disabled="$ctrl.answer !== undefined"
+                    ng-bind-html="answer | wqQuestion : answer.image">
+                </button>
+            </div>
+            <div class="clearfix" ng-show="$index % 2"></div>
+        </div>
+    </div>
+</main>

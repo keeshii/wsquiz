@@ -1,0 +1,20 @@
+@sidebar-width: 255px;
+
+@media (min-width: @screen-xs-max) {
+    .c-sidebar {
+        display: table;
+    }
+
+    .c-sidebar__left {
+        display: table-cell;
+        vertical-align: top;
+        max-width: @sidebar-width;
+        min-width: @sidebar-width;
+    }
+
+    .c-sidebar__right {
+        display: table-cell;
+        vertical-align: top;
+        width: 100%;
+    }
+}

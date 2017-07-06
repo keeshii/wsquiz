@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-md-offset-3">
+
+            <div class="well u-huge-margin-top">
+
+                <div class="u-is-centered u-small-margin-top">
+                    <h3 translate>STR_HEADER</h3>
+                </div>
+
+                <div class="u-big-margin-top u-small-margin-bottom" ng-class="{'has-error': $ctrl.invalidCode}">
+                    <form name="startForm">
+                        <div class="form-group">
+                            <label for="code" class="control-label" translate>STR_QUIZ_CODE</label>
+
+                            <input class="form-control"
+                                type="text"
+                                id="code"
+                                name="code"
+                                required
+                                title="{{'STR_QUIZ_CODE' | translate}}"
+                                placeholder="{{'STR_ENTER_QUIZ_CODE' | translate}}"
+                                ng-change="$ctrl.invalidCode = false"
+                                ng-disabled="startForm.$submitted"
+                                ng-model="code"
+                                autocomplete="off">
+
+                            <span class="help-block u-hidden-not-error" translate>STR_INVALID_CODE</span>
+                        </div>
+
+                        <button class="btn btn-primary btn-lg btn-block u-big-margin-top"
+                            ng-click="$ctrl.enterQuiz(code)"
+                            ng-disabled="startForm.$submitted"
+                            translate>
+                            STR_START
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

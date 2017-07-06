@@ -1,0 +1,54 @@
+<div class="c-main">
+
+    <!-- Summary -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-primary u-small-margin-bottom">
+                <div class="panel-body">
+                    <h2 translate>QST_SUMMARY</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <wq-autonext
+                on-start="$ctrl.goToStandings()"
+                ng-if="session.isHost">
+            </wq-autonext>
+        </div>
+        <div class="col-xs-6 text-right">
+            <button class="btn btn-lg btn-primary u-small-margin-bottom"
+                ng-click="$ctrl.goToStandings()"
+                translate>
+                QST_GO_TO_STANDINGS
+            </button>
+        </div>
+    </div>
+
+    <ul class="list-group u-small-margin-bottom">
+        <li class="list-group-item" ng-repeat="answer in $ctrl.summary">
+            <h4 ng-class="{'text-success': answer.correct,'text-danger': !answer.correct}"
+                ng-bind-html="answer.text | wqQuestion">
+                <small
+                    translate
+                    translate-value-count="{{answer.count}}">
+                    QST_X_ANSWERS_BRACKETS
+                </small>
+            </h4>
+
+            <div class="progress u-no-margin-bottom u-tiny-margin-top">
+                <div class="progress-bar progress-bar-success"
+                    ng-class="{
+                        'progress-bar-success': answer.correct,
+                        'progress-bar-danger': !answer.correct
+                    }"
+                    ng-style="{width: answer.width}">
+                    <span ng-show="answer.count">{{answer.count}}</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</div>

@@ -1,0 +1,72 @@
+<main class="c-main">
+
+    <!-- Page header -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-primary u-small-margin-bottom">
+                <div class="panel-body">
+                    <h2>{{session.quiz.title}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+
+            <div class="well u-small-margin-top">
+
+                <!-- Profile header -->
+                <div class="u-is-centered">
+                    <h3 class="u-small-margin-top" translate>PRO_SUBHEADER</h3>
+                </div>
+
+                <div class="u-big-margin-top u-small-margin-bottom">
+
+                    <form name="profileForm">
+
+                        <!-- Avatar -->
+                        <div class="form-group ng-hide" ng-show="session.quiz.avatars">
+                            <img
+                                class="c-avatar c-avatar--full-size c-avatar--clickable c-avatar--is-centered"
+                                ng-click="$ctrl.setAvatar()"
+                                ng-src="{{$ctrl.profile.avatar || 'images/avatar.svg'}}"
+                                alt="{{'PRO_AVATAR' | translate}}">
+
+                            <span class="help-block u-is-centered" translate>PRO_CLICK_IMAGE</span>
+                        </div>
+
+                        <!-- Nick -->
+                        <div class="form-group" ng-class="{'has-error': $ctrl.invalidNick}">
+                            <label for="nick" class="control-label" translate>PRO_NICK</label>
+
+                            <input class="form-control input-lg"
+                                type="text"
+                                id="nick"
+                                name="nick"
+                                required
+                                title="{{'PRO_NICK' | translate}}"
+                                placeholder="{{'PRO_ENTER_NICK' | translate}}"
+                                ng-change="$ctrl.invalidNick = false"
+                                ng-disabled="profileForm.$submitted"
+                                ng-model="$ctrl.profile.nick"
+                                autocomplete="off">
+
+                            <span class="help-block u-hidden-not-error" translate>PRO_ALREADY_IN_USE</span>
+                        </div>
+
+                        <button class="btn btn-primary btn-lg btn-block u-big-margin-top"
+                            ng-click="$ctrl.submitProfile($ctrl.profile)"
+                            ng-disabled="profileForm.$submitted"
+                            translate>
+                            PRO_JOIN
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</main>

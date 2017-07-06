@@ -1,0 +1,15 @@
+<div class="u-small-margin-bottom" uib-dropdown>
+
+    <button class="btn btn-lg btn-default" uib-dropdown-toggle>
+        {{$ctrl.value === -1 ? ('COM_OFF' | translate) : ('COM_X_SEC' | translate:{count: $ctrl.value})}}
+        <span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu" role="menu" uib-dropdown-menu>
+        <li ng-repeat="option in $ctrl.options">
+            <a ng-click="$ctrl.changeOption(option)">
+                {{option === -1 ? ('COM_OFF' | translate) : ('COM_X_SEC' | translate:{count: option})}}
+            </a>
+        </li>
+    </ul>
+</div>

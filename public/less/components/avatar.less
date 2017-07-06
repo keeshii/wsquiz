@@ -1,0 +1,65 @@
+@avatar-full-size: 150px;
+
+@avatar-winner-size: 72px;
+@avatar-winner-padding: 24px;
+
+.c-avatar {
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+}
+
+.c-avatar--is-centered {
+    margin: 0 auto @padding-small auto;
+}
+
+.c-avatar--clickable {
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+        opacity: 0.8;
+    }
+}
+
+.c-avatar--full-size {
+    display: block;
+    height: @avatar-full-size;
+    width: @avatar-full-size;
+}
+
+.c-avatar--winner-size {
+    height: @avatar-winner-size;
+    margin: 0 @avatar-winner-padding;
+    width: @avatar-winner-size;
+}
+
+.c-avatar-winner-container {
+    display: block;
+    height: @avatar-winner-size + (2 * @avatar-winner-padding);
+    padding: @avatar-winner-padding;
+    margin: 0 auto;
+    position: relative;
+    width: @avatar-winner-size + (2 * @avatar-winner-padding);
+
+    & .c-avatar {
+        height: @avatar-winner-size;
+        position: relative;
+        width: @avatar-winner-size;
+    }
+
+    &::before {
+        .animation(loader 30s linear infinite);
+        background-image: url('@{images}/winner.svg');
+        background-size: 100% 100%;
+        content: "";
+        display: block;
+        height: @avatar-winner-size + (2 * @avatar-winner-padding);
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: @avatar-winner-size + (2 * @avatar-winner-padding);
+    }
+}

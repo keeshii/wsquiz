@@ -1,0 +1,10 @@
+<div class="c-progressbar">
+    <div class="progress">
+        <div class="progress-bar progress-bar-success"
+            style="min-width: 0; width: 100%;"
+            ng-style="{width: (100 * $ctrl.current) / $ctrl.start + '%'}">
+        </div>
+    </div>
+
+    <div class="c-progressbar__status" ng-transclude></div>
+</div>
