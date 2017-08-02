@@ -10,6 +10,12 @@ function SampleQuiz() {
     // Time to answer
     this.answerTime = 20 * 1000; // 10 sec
 
+    // Points for correct answer
+    this.points = 1000;
+
+    // Points for answering quickly
+    this.timeBonus = 500;
+
     // Supported languages
     this.languages = ['en', 'pl'];
 
