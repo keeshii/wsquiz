@@ -8,7 +8,7 @@ workshop or it can be used at school.
 To get a better overview of this project, you can try visit the demo page
 given below. To start the sample quiz use the code: `sample`.
 
-* Demo page: [http://ryuu.eu:1521](http://ryuu.eu:1521)
+* Demo page: [https://quiz.ryuu.eu](https://quiz.ryuu.eu)
 * Code: `sample`
 
 ## Usage
