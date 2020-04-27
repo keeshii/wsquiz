@@ -16,7 +16,7 @@ given below. To start the sample quiz use the code: `sample`.
 ### Pre-Requisites
 
 * NodeJs version at least 4.6.x.
-* Reasonable amount of RAM. 
+* Reasonable amount of RAM.
 
 The system may host multiple quiz instances at the same time, and it doesn't use
 any external databse to store data. Everything is kept in the memory.
@@ -27,7 +27,9 @@ Supported browsers:
 * Chrome 49
 * Safari 9.3
 
-### Configuring
+### Setup for production
+
+1. Download package from [releases](https://github.com/keeshii/wsquiz/releases).
 
 1. Check and update the file `server/config.js` according to your needs.
 
@@ -56,19 +58,30 @@ to start the quiz.
 
 If you wish to make changes in the source code and contribute to this project,
 you problably would like to clone this git repository. The following commands
-will help you setup the project in the development mode:
+will help you setup the environment for the development:
 
-1. Run as root:
-* `npm install -g grunt-cli`
-* `npm install -g bower`
+1. Install stuff
+```
+npm install
+npx bower instal
+```
 
-2. Run as user:
-* `npm install`
-* `bower install`
-* `grunt debug`
+2. Compile and run the package in debug mode (not minified sources).
+```
+npx grunt debug
+npm start
+```
 
-3. To prepare a package that could be copied to server use:
-* `grunt release`
+3. Or test the application in the production mode.
+```
+npx grunt
+npm start
+```
+
+4. To prepare a package that could be copied to server use:
+```
+npx grunt release
+```
 
 ## License
 
