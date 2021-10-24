@@ -9,9 +9,17 @@
         $compileProvider.debugInfoEnabled(false);
         $urlRouterProvider.otherwise("/start");
 
+        function getLocale() {
+            var browserLang = $translateProvider.resolveClientLocale();
+            if (typeof browserLang === 'string' && browserLang.match(/\w\w/i) !== null) {
+                return browserLang.match(/\w\w/i)[0].toLowerCase();
+            }
+            return browserLang;
+        }
+
         $translateProvider
             .fallbackLanguage('en')
-            .determinePreferredLanguage()
+            .determinePreferredLanguage(getLocale)
             .useSanitizeValueStrategy('escapeParameters')
             .useStaticFilesLoader({
                 prefix: '/languages/',

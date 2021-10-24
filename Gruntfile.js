@@ -215,29 +215,27 @@ module.exports = function (grunt) {
                 dest: '<%= config.PATH %>/lib/',
                 src: [
                     'angular/angular.min.js',
+                    'angular/angular.min.js.map',
                     'angular-animate/angular-animate.min.js',
+                    'angular-animate/angular-animate.min.js.map',
                     'angular-cookies/angular-cookies.min.js',
+                    'angular-cookies/angular-cookies.min.js.map',
                     'angular-sanitize/angular-sanitize.min.js',
+                    'angular-sanitize/angular-sanitize.min.js.map',
                     'angular-bootstrap/ui-bootstrap-tpls.min.js',
-                    'angular-sanitize/angular-sanitize.min.js',
                     'angular-socket-io/socket.min.js',
+                    'angular-socket-io/socket.min.js.map',
                     'angular-ui-router/release/angular-ui-router.min.js',
+                    'angular-ui-router/release/angular-ui-router.min.js.map',
                     'angular-translate/angular-translate.min.js',
                     'angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
                     'angular-translate-handler-log/angular-translate-handler-log.min.js',
                     'bootstrap/dist/css/bootstrap.min.css',
                     'bootstrap/dist/css/bootstrap.min.css.map',
                     'bootstrap/dist/fonts/*',
-                    'socket.io-client/dist/socket.io.js'
+                    'socket.io-client/dist/socket.io.js',
+                    'socket.io-client/dist/socket.io.js.map'
                 ]
-            }
-        },
-        bower: {
-            install: {
-                options: {
-                    targetDir: config.BOWER_PATH,
-                    verbose: true
-                }
             }
         },
         i18nextract: {
@@ -317,7 +315,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-lesslint');
     grunt.loadNpmTasks('grunt-injector');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-zip');
 
     grunt.registerTask('default', ['jslint', 'htmlhint', 'lintspaces', 'clean:clean', 'less', 'copy:libs', 'html2js', 'replace', 'uglify', 'clean:post_dist', 'injector:production']);
