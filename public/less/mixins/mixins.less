@@ -77,6 +77,7 @@
     -moz-transition:    @transition;
     -ms-transition:     @transition;
     -o-transition:      @transition;
+    transition:         @transition;
 }
 
 .transform(@string){
@@ -84,6 +85,7 @@
     -moz-transform:    @string;
     -ms-transform:     @string;
     -o-transform:      @string;
+    transform:         @string;
 }
 
 .scale (@factor) {
@@ -91,6 +93,7 @@
     -moz-transform:    scale(@factor);
     -ms-transform:     scale(@factor);
     -o-transform:      scale(@factor);
+    transform:         scale(@factor);
 }
 
 .rotate (@deg) {
@@ -98,6 +101,7 @@
     -moz-transform:    rotate(@deg);
     -ms-transform:     rotate(@deg);
     -o-transform:      rotate(@deg);
+    transform:         rotate(@deg);
 }
 
 .skew (@deg, @deg2) {
@@ -105,6 +109,7 @@
     -moz-transform:         skew(@deg, @deg2);
     -ms-transform:          skew(@deg, @deg2);
     -o-transform:           skew(@deg, @deg2);
+    transform:              skew(@deg, @deg2);
 }
 
 .translate (@x, @y:0) {
@@ -112,6 +117,7 @@
     -moz-transform:         translate(@x, @y);
     -ms-transform:          translate(@x, @y);
     -o-transform:           translate(@x, @y);
+    transform:              translate(@x, @y);
 }
 
 .translate3d (@x, @y: 0, @z: 0) {
@@ -119,6 +125,7 @@
     -moz-transform:         translate3d(@x, @y, @z);
     -ms-transform:          translate3d(@x, @y, @z);
     -o-transform:           translate3d(@x, @y, @z);
+    transform:              translate3d(@x, @y, @z);
 }
 
 .perspective (@value: 1000) {

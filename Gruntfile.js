@@ -1,3 +1,6 @@
+var os = require('os');
+os.tmpDir = os.tmpdir;
+
 module.exports = function (grunt) {
     'use strict';
 
@@ -201,7 +204,8 @@ module.exports = function (grunt) {
                     'fallback-colors': false,
                     'gradients': false,
                     'universal-selector': false,
-                    'font-sizes': false
+                    'font-sizes': false,
+                    'outline-none': false
                 }
             }
         },
@@ -317,7 +321,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-zip');
 
-    grunt.registerTask('default', ['jslint', 'htmlhint', 'lintspaces', 'clean:clean', 'less', 'copy:libs', 'html2js', 'replace', 'uglify', 'clean:post_dist', 'injector:production']);
+    grunt.registerTask('default', ['jslint', 'htmlhint', 'lintspaces', 'lesslint',  'clean:clean', 'less', 'copy:libs', 'html2js', 'replace', 'uglify', 'clean:post_dist', 'injector:production']);
     grunt.registerTask('release', ['default', 'zip']);
-    grunt.registerTask('debug', ['jslint', 'htmlhint', 'lintspaces', 'clean:clean', 'less', 'copy:libs', 'injector:debug']);
+    grunt.registerTask('debug', ['jslint', 'htmlhint', 'lintspaces', 'lesslint', 'clean:clean', 'less', 'copy:libs', 'injector:debug']);
 };
