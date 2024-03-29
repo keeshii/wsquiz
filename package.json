@@ -26,7 +26,7 @@
     "grunt-lesslint": "~5.0.0",
     "grunt-lintspaces": "~0.10.0",
     "grunt-text-replace": "~0.4.0",
-    "grunt-zip": "^0.20.0"
+    "grunt-zip": "^1.0.0"
   },
   "repository": {
     "type": "git",
