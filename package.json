@@ -37,7 +37,7 @@
     "quiz"
   ],
   "dependencies": {
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "q": "^1.5.1",
     "socket.io": "^2.5.0"
   }
